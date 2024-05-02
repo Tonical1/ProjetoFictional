@@ -72,22 +72,21 @@ body{
     filter: drop-shadow(var(--fullwhite) 0 0 1rem);
 }
 
-
-nav{
-    width: 35rem;
+#header-nav{
+    width: 700;
     height: 50px;
     font-family: "Roboto",sans-serif;
 }
-nav ul{
+#header-nav ul{
     list-style: none;
     position: relative;
 } 
-nav ul li{
+#header-nav ul li{
     width: 25%;
     float: right;
 }
 
-nav a{
+#header-nav a{
     padding: 1rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -97,35 +96,39 @@ nav a{
     color:var(--fullwhite);
     background: var(--darkwhite);
 }
-nav ul ul{
-    position: absolute;
+#header-nav ul ul{
+    position: relative;
     visibility: hidden;
 }
-nav ul li:hover ul{
+#header-nav ul li:hover ul{
     visibility: visible;
 }
 
-nav a:hover{
+#header-nav a:hover{
     background: var(--fullwhite);
     color:#000;
 }
-nav ul ul li{
+#header-nav ul ul li{
     width: 100%;
     float: none;
     border-bottom: 1px solid aqua;
 }
-nav ul ul li a{
+#header-nav ul ul li a{
     background: var(--darkgray);
 }
 
 label[for="bt-menu"]{
+    float: none;
+
     filter: invert();
     padding: 5px;
     display: flex;
     justify-content: center;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+
+    position: relative;
+    width: 100px;
+    height: 100px;
 }
 
 label[for="bt-menu"]{
@@ -173,4 +176,28 @@ label[for="bt-menu"]{
 }
 .borderBL{
     top: calc(100% - 1rem + var(--custombordersize) * -1);
+}
+
+
+/*/RESPONSIVIDADE/*/
+@media (max-width:800px){
+    #header-nav ul li{
+        width: 100%;
+        float: none;
+    }
+    #header-nav ul ul{
+        position: static;
+    }
+    #header-nav{
+        width: 100%;
+        margin-top: 5px;
+        margin-right: -100%;
+        transition: all .5s;
+    }
+    label[for="bt-menu"]{
+        display: block;
+    }
+    #bt-menu:checked ~ #header-nav{
+        margin-right: 0;
+    }
 }
